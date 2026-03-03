@@ -18,7 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
   
-  <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js" defer></script>
   <script src="scripts.js" defer></script>
 </head>
 <body>
@@ -44,7 +43,7 @@
         <a href="#formations" class="nav-item" data-i18n="nav-formations">Parcours</a>
         <a href="#skills" class="nav-item" data-i18n="nav-skills">Compétences</a>
         <a href="#contact" class="nav-item" data-i18n="nav-contact">Contact</a>
-        <a href="source/CV_Tiago_Rafael_Belchior_Dias.pdf" target="_blank" class="nav-item btn-cv" data-i18n="nav-cv">CV PDF</a>
+        <a href="source/CV_Tiago_Rafael_Belchior_Dias.pdf" target="_blank" class="nav-item btn-cv" data-i18n="nav-cv">Mon CV</a>
         
         <div id="controls-container" class="nav__controls"></div>
       </div>
@@ -55,10 +54,10 @@
     <div class="hero__content">
       <div class="hero__profile reveal">
         <div class="profile-frame">
-          <img src="img/Profile.jpg" alt="Photo de Tiago" width="180" height="180" />
+          <img src="img/Profile.jpg" alt="Photo de Tiago" />
         </div>
       </div>
-      <p class="hero__subtitle reveal">/ CLASSE : DÉVELOPPEUR</p>
+      <p class="hero__subtitle reveal" data-i18n="hero-subtitle">/ CLASSE : DÉVELOPPEUR</p>
       <h1 class="hero__title reveal">TIAGO R. BELCHIOR DIAS</h1>
       <p class="hero__lead reveal" data-i18n="hero-lead">Étudiant en BUT Informatique & Développeur Fullstack</p>
       <div class="hero__action reveal">
@@ -78,7 +77,7 @@
       <h2 id="projects-title" class="section__title" data-i18n="projects-title">/ MES PROJETS</h2>
 
       <div class="controls reveal" role="group" aria-label="Filtres des projets">
-        <button type="button" class="chip active" data-filter="all">TOUS</button>
+        <button type="button" class="chip active" data-filter="all" data-i18n="projects-filter-all">TOUS</button>
         <button type="button" class="chip" data-filter="C#">C# / WPF</button>
         <button type="button" class="chip" data-filter="Web">WEB</button>
         <button type="button" class="chip" data-filter="SQL">BDD</button>
@@ -149,14 +148,11 @@
     <section id="about" class="section destiny-panel" aria-labelledby="about-title">
       <h2 id="about-title" class="section__title" data-i18n="about-title">/ À PROPOS</h2>
       <div class="about-content box-sci-fi reveal">
-        <p data-i18n="about-p1">
-          Salutations, Gardien. Je suis <strong>Tiago Rafael Belchior Dias</strong>, étudiant en informatique passionné par le développement logiciel. 
-          J'aime concevoir des architectures solides en C# et créer des expériences web interactives.
-        </p>
+        <p data-i18n="about-p1">Salutations, Gardien. Je suis Tiago...</p>
         <ul class="about-list">
-          <li><span class="accent-text">FORMATION //</span> BUT Informatique (2ème année)</li>
-          <li><span class="accent-text">SPÉCIALITÉS //</span> Programmation système, Web, Jeux vidéo</li>
-          <li><span class="accent-text">LANGUES //</span> Portugais (Natif), Français (Bilingue), Anglais (B2)</li>
+          <li><span class="accent-text" data-i18n="about-list-formation">FORMATION //</span> BUT Informatique (2ème année)</li>
+          <li><span class="accent-text" data-i18n="about-list-specialties">SPÉCIALITÉS //</span> Programmation système, Web, Jeux vidéo</li>
+          <li><span class="accent-text" data-i18n="about-list-languages">LANGUES //</span> Portugais (Natif), Français (Bilingue), Anglais (B2)</li>
         </ul>
       </div>
     </section>
@@ -165,42 +161,42 @@
       <h2 class="section__title" data-i18n="nav-formations">/ PARCOURS</h2>
       
       <div class="timeline-container reveal">
-        <h3 class="timeline-header"><span data-i18n="timeline-formation">FORMATION_</span></h3>
+        <h3 class="timeline-header"><span data-i18n="timeline-formation-title">FORMATION_</span></h3>
         <ol class="timeline">
           <li>
             <time>2024 - PRÉSENT</time>
             <div class="timeline__content box-sci-fi">
-              <h3>BUT Informatique</h3>
+              <h3 data-i18n="timeline-degree-but">BUT Informatique</h3>
               <p class="accent-text">IUT Annecy (USMB)</p>
-              <p>Spécialisation en réalisation d'applications : conception, développement, tests et déploiement.</p>
+              <p data-i18n="timeline-desc-but">Spécialisation en réalisation d'applications...</p>
             </div>
           </li>
           <li>
             <time>2024</time>
             <div class="timeline__content box-sci-fi">
-              <h3>Baccalauréat STI2D</h3>
+              <h3 data-i18n="timeline-degree-bac">Baccalauréat STI2D</h3>
               <p class="accent-text">Lycée de l'Albanais</p>
-              <p>Mention Bien. Option Systèmes d'Information et Numérique.</p>
+              <p data-i18n="timeline-desc-bac">Mention Bien. Option Systèmes d'Information et Numérique.</p>
             </div>
           </li>
         </ol>
 
-        <h3 class="timeline-header" style="margin-top: 3rem;"><span data-i18n="timeline-experience">EXPÉRIENCES_</span></h3>
+        <h3 class="timeline-header" style="margin-top: 3rem;"><span data-i18n="timeline-experience-title">EXPÉRIENCES_</span></h3>
         <ol class="timeline">
           <li>
             <time>2025 - 2026</time>
             <div class="timeline__content box-sci-fi">
-              <h3>Développeur Fullstack</h3>
-              <p class="accent-text">IUT Annecy (Projet Académique)</p>
-              <p>Gestion complète du cycle de vie logiciel : Analyse des besoins, modélisation UML, développement et recette.</p>
+              <h3 data-i18n="timeline-role-dev">Développeur Fullstack</h3>
+              <p class="accent-text" data-i18n="timeline-comp-but">IUT Annecy (Projet Académique)</p>
+              <p data-i18n="timeline-desc-dev">Gestion complète du cycle de vie logiciel...</p>
             </div>
           </li>
           <li>
-            <time>ÉTÉS 2023 & 2024</time>
+            <time data-i18n="timeline-date-smc2">ÉTÉS 2023 & 2024</time>
             <div class="timeline__content box-sci-fi">
-              <h3>Emplois Saisonniers</h3>
+              <h3 data-i18n="timeline-role-saisonniere">Emplois Saisonniers</h3>
               <p class="accent-text">SMC2</p>
-              <p>Développement de l'autonomie, travail d'équipe et rigueur professionnelle dans le secteur du BTP et de l'industrie.</p>
+              <p data-i18n="timeline-desc-smc2">Développement de l'autonomie, travail d'équipe...</p>
             </div>
           </li>
         </ol>
@@ -212,7 +208,7 @@
       <div class="skills-wrapper">
         
         <div class="skill-category box-sci-fi reveal">
-          <h3>BACKEND_</h3>
+          <h3 data-i18n="skill-title-backend">BACKEND_</h3>
           <div class="skill-tags">
             <span class="skill-tag">C# / .NET</span>
             <span class="skill-tag">PHP</span>
@@ -222,7 +218,7 @@
         </div>
 
         <div class="skill-category box-sci-fi reveal">
-          <h3>FRONTEND_</h3>
+          <h3 data-i18n="skill-title-frontend">FRONTEND_</h3>
           <div class="skill-tags">
             <span class="skill-tag">HTML5</span>
             <span class="skill-tag">CSS3</span>
@@ -232,7 +228,7 @@
         </div>
 
         <div class="skill-category box-sci-fi reveal">
-          <h3>DATA_&_OUTILS_</h3>
+          <h3 data-i18n="skill-title-data">DATA_&_OUTILS_</h3>
           <div class="skill-tags">
             <span class="skill-tag">PostgreSQL</span>
             <span class="skill-tag">SQL</span>
@@ -247,24 +243,17 @@
     <section id="contact" class="section destiny-panel" aria-labelledby="contact-title">
       <h2 id="contact-title" class="section__title" data-i18n="contact-title">/ CONTACT</h2>
       <div class="contact-box box-sci-fi reveal">
-        <p>RECHERCHE D'ALTERNANCE OU DE STAGE EN COURS. PRÊT POUR LA PROCHAINE MISSION.</p>
+        <p data-i18n="contact-description">RECHERCHE D'ALTERNANCE OU DE STAGE EN COURS. PRÊT POUR LA PROCHAINE MISSION.</p>
         <a href="mailto:tiago-rafael.belchior-dias@etu.univ-smb.fr" class="btn btn--primary btn-large">
-          LANCER LA TRANSMISSION
+          <span data-i18n="contact-email-btn">LANCER LA TRANSMISSION</span>
         </a>
         
         <div class="social-links">
-          <a href="https://github.com/SonicRaft29-etu" target="_blank" aria-label="Mon Profil GitHub">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
-              <path d="M9 18c-4.51 2-5-2-7-2"/>
-            </svg>
+          <a href="https://github.com/SonicRaft29-etu" target="_blank" aria-label="GitHub">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
           </a>
-          <a href="https://www.linkedin.com/in/tiago-rafael-belchior-dias-33660436b" target="_blank" aria-label="Mon Profil LinkedIn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-              <rect width="4" height="12" x="2" y="9"/>
-              <circle cx="4" cy="4" r="2"/>
-            </svg>
+          <a href="https://www.linkedin.com/in/tiago-rafael-belchior-dias-33660436b" target="_blank" aria-label="LinkedIn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
         </div>
       </div>
@@ -274,7 +263,7 @@
 
   <footer class="footer">
     <div class="container footer__container">
-      <p>SYS.CORE // V.2026 © <span id="year"></span> TIAGO RAFAEL BELCHIOR DIAS</p>
+      <p>SYS.CORE // V.2.26 © <span id="year"></span> <span data-i18n="footer-copyright">TIAGO RAFAEL BELCHIOR DIAS. TOUS DROITS RÉSERVÉS.</span></p>
     </div>
   </footer>
 
