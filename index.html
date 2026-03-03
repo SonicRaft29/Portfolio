@@ -25,7 +25,7 @@
 
   <div id="loading" aria-hidden="true">
     <div class="spinner" role="status" aria-label="Chargement en cours...">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
       </svg>
     </div>
@@ -35,7 +35,7 @@
 
   <nav class="nav" role="navigation" aria-label="Navigation principale">
     <div class="container nav__container">
-      <div class="nav__brand">Tiago B.D.</div>
+      <div class="nav__brand">Tiago <span class="muted">B.D.</span></div>
       <button type="button" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" class="nav__toggle" aria-label="Ouvrir le menu">
         <i data-lucide="menu"></i>
       </button>
@@ -45,7 +45,7 @@
         <a href="#formations" data-i18n="nav-formations">Parcours</a>
         <a href="#skills" data-i18n="nav-skills">Compétences</a>
         <a href="#contact" data-i18n="nav-contact">Contact</a>
-        <a href="source/CV_Tiago_Rafael_Belchior_Dias.pdf" target="_blank" class="btn-cv" data-i18n="nav-cv">CV PDF</a>
+        <a href="source/CV_Tiago_Rafael_Belchior_Dias.pdf" target="_blank" class="btn-cv" data-i18n="nav-cv">Mon CV</a>
         
         <div id="controls-container" class="nav__controls"></div>
       </div>
@@ -54,12 +54,12 @@
 
   <header class="hero" role="banner" id="top">
     <div class="hero__content">
-      <div class="hero__profile">
+      <div class="hero__profile reveal">
         <img src="img/Profile.jpg" alt="Photo de Tiago Rafael Belchior Dias" width="180" height="180" />
       </div>
-      <h1>Tiago Rafael Belchior Dias</h1>
-      <p class="hero__lead" data-i18n="hero-lead">Étudiant en BUT Informatique & Développeur Fullstack</p>
-      <div class="hero__action">
+      <h1 class="gradient-text reveal">Tiago Rafael Belchior Dias</h1>
+      <p class="hero__lead reveal" data-i18n="hero-lead">Étudiant en BUT Informatique & Développeur Fullstack</p>
+      <div class="hero__action reveal">
         <a class="btn btn--primary" href="#projects">
           <i data-lucide="folder-code"></i> <span data-i18n="hero-btn-projects">Voir mes projets</span>
         </a>
@@ -75,7 +75,7 @@
     <section id="projects" class="section" aria-labelledby="projects-title">
       <h2 id="projects-title" class="section__title" data-i18n="projects-title">Mes Projets</h2>
 
-      <div class="controls" role="group" aria-label="Filtres des projets">
+      <div class="controls reveal" role="group" aria-label="Filtres des projets">
         <span class="muted" data-i18n="projects-sort-label">Filtrer : </span>
         <button type="button" class="chip active" data-filter="all">Tous</button>
         <button type="button" class="chip" data-filter="C#">C# / WPF</button>
@@ -85,7 +85,9 @@
 
       <div class="grid" id="projects-grid">
         <article class="card reveal" data-type="C# univ">
-          <img src="img/Lé Moustik c pa bi1.png" alt="Jeu Le Moustique" loading="lazy">
+          <div class="card__img-container">
+            <img src="img/Lé Moustik c pa bi1.png" alt="Jeu Le Moustique" loading="lazy">
+          </div>
           <div class="card__body">
             <h3 class="card__title">Jeu "Le Moustique"</h3>
             <p class="card__desc" data-i18n="project-moustik-desc">Jeu d'arcade réalisé en C# (WPF). Gestion des collisions, score et boucles de jeu.</p>
@@ -100,21 +102,25 @@
         </article>
 
         <article class="card reveal" data-type="Web SQL univ">
-          <img src="img/hunimalis.jpg" alt="Projet Hunimalis" loading="lazy">
+          <div class="card__img-container">
+            <img src="img/hunimalis.jpg" alt="Projet Hunimalis" loading="lazy">
+          </div>
           <div class="card__body">
             <h3 class="card__title">Hunimalis</h3>
             <p class="card__desc" data-i18n="project-sae-desc">Développement d'un site web dynamique avec Laravel et gestion de base de données PostgreSQL.</p>
             <div class="card__meta">
               <span class="tag">PHP Laravel</span>
               <span class="tag">PostgreSQL</span>
-              <span class="card__cta muted"><i data-lucide="lock" width="16"></i> Privé</span>
+              <span class="status-indicator status-private"><i data-lucide="lock" width="16"></i> <span data-i18n="project-status-private">Privé</span></span>
             </div>
           </div>
         </article>
 
         <article class="card reveal" data-type="C# SQL univ">
-          <div class="card__placeholder">
-             <i data-lucide="database" width="48" height="48"></i>
+          <div class="card__img-container">
+            <div class="card__placeholder">
+                <i data-lucide="database" width="48" height="48"></i>
+            </div>
           </div>
           <div class="card__body">
             <h3 class="card__title">App Gestion Stocks</h3>
@@ -131,30 +137,30 @@
       </div>
     </section>
 
-    <section id="about" class="section reveal" aria-labelledby="about-title">
+    <section id="about" class="section" aria-labelledby="about-title">
       <h2 id="about-title" class="section__title" data-i18n="about-title">À propos</h2>
-      <div class="about-content box-glass">
+      <div class="about-content box-glass reveal">
         <p data-i18n="about-p1">
           Bonjour ! Je suis <strong>Tiago Rafael Belchior Dias</strong>, étudiant en informatique passionné par le développement logiciel. 
           J'aime concevoir des architectures solides en C# et créer des expériences web interactives.
         </p>
         <ul class="about-list">
-          <li><strong>🎓 Formation :</strong> BUT Informatique (2ème année)</li>
-          <li><strong>💻 Intérêts :</strong> Programmation système, Web, Jeux vidéo</li>
-          <li><strong>🌍 Langues :</strong> Portugais (Natif), Français (Bilingue), Anglais (B2)</li>
+          <li><strong><i data-lucide="graduation-cap"></i> 🎓 Formation :</strong> BUT Informatique (2ème année)</li>
+          <li><strong><i data-lucide="code"></i> 💻 Intérêts :</strong> Programmation système, Web, Jeux vidéo</li>
+          <li><strong><i data-lucide="languages"></i> 🌍 Langues :</strong> Portugais (Natif), Français (Bilingue), Anglais (B2)</li>
         </ul>
       </div>
     </section>
 
-    <section id="formations" class="section reveal">
+    <section id="formations" class="section">
       <h2 class="section__title" data-i18n="nav-formations">Parcours</h2>
       
-      <div class="timeline-container">
-        <h3 class="timeline-header"><i data-lucide="graduation-cap"></i> Formation</h3>
+      <div class="timeline-container reveal">
+        <h3 class="timeline-header"><i data-lucide="graduation-cap"></i> <span data-i18n="timeline-formation">Formation</span></h3>
         <ol class="timeline">
           <li>
             <time>2024 - Présent</time>
-            <div class="timeline__content">
+            <div class="timeline__content box-glass">
               <h3>BUT Informatique</h3>
               <p><strong>IUT Annecy (USMB)</strong></p>
               <p>Spécialisation en réalisation d'applications : conception, développement, tests et déploiement.</p>
@@ -162,7 +168,7 @@
           </li>
           <li>
             <time>2024</time>
-            <div class="timeline__content">
+            <div class="timeline__content box-glass">
               <h3>Baccalauréat STI2D</h3>
               <p><strong>Lycée de l'Albanais</strong></p>
               <p>Mention Bien. Option Systèmes d'Information et Numérique.</p>
@@ -170,11 +176,11 @@
           </li>
         </ol>
 
-        <h3 class="timeline-header" style="margin-top: 3rem;"><i data-lucide="briefcase"></i> Expériences</h3>
+        <h3 class="timeline-header" style="margin-top: 3rem;"><i data-lucide="briefcase"></i> <span data-i18n="timeline-experience">Expériences</span></h3>
         <ol class="timeline">
           <li>
             <time>2025 - 2026</time>
-            <div class="timeline__content">
+            <div class="timeline__content box-glass">
               <h3>Développeur Fullstack (Projet Académique)</h3>
               <p><strong>IUT Annecy</strong></p>
               <p>Gestion complète du cycle de vie logiciel : Analyse des besoins, modélisation UML, développement et recette.</p>
@@ -182,7 +188,7 @@
           </li>
           <li>
             <time>Étés 2023 & 2024</time>
-            <div class="timeline__content">
+            <div class="timeline__content box-glass">
               <h3>Emplois Saisonniers</h3>
               <p><strong>SMC2</strong></p>
               <p>Développement de l'autonomie, travail d'équipe et rigueur professionnelle dans le secteur du BTP et de l'industrie.</p>
@@ -192,11 +198,11 @@
       </div>
     </section>
 
-    <section id="skills" class="section reveal" aria-labelledby="skills-title">
+    <section id="skills" class="section" aria-labelledby="skills-title">
       <h2 id="skills-title" class="section__title" data-i18n="skills-title">Stack Technique</h2>
       <div class="skills-wrapper">
         
-        <div class="skill-category">
+        <div class="skill-category reveal">
           <h3><i data-lucide="server"></i> Backend & Logiciel</h3>
           <div class="skill-tags">
             <span class="skill-tag">C# / .NET</span>
@@ -206,7 +212,7 @@
           </div>
         </div>
 
-        <div class="skill-category">
+        <div class="skill-category reveal">
           <h3><i data-lucide="layout"></i> Web & Front</h3>
           <div class="skill-tags">
             <span class="skill-tag">HTML5</span>
@@ -216,7 +222,7 @@
           </div>
         </div>
 
-        <div class="skill-category">
+        <div class="skill-category reveal">
           <h3><i data-lucide="database"></i> Data & Outils</h3>
           <div class="skill-tags">
             <span class="skill-tag">PostgreSQL</span>
@@ -229,9 +235,9 @@
       </div>
     </section>
 
-    <section id="contact" class="section reveal" aria-labelledby="contact-title">
+    <section id="contact" class="section" aria-labelledby="contact-title">
       <h2 id="contact-title" class="section__title" data-i18n="contact-title">Contact</h2>
-      <div class="contact-box box-glass">
+      <div class="contact-box box-glass reveal">
         <p>À la recherche d'une alternance ou d'un stage ? N'hésitez pas à m'écrire.</p>
         <a href="mailto:tiago-rafael.belchior-dias@etu.univ-smb.fr" class="btn btn--primary">
           <i data-lucide="send"></i> Envoyer un email
@@ -246,11 +252,14 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
+    <div class="container footer__container">
       <p>© <span id="year"></span> Tiago Rafael Belchior Dias</p>
-      <a href="#top" class="back-to-top" data-i18n="footer-top">Haut de page ↑</a>
     </div>
   </footer>
+
+  <a href="#top" id="back-to-top" class="back-to-top" aria-label="Retour en haut de page" data-i18n="footer-top-tooltip">
+      <i data-lucide="arrow-up"></i>
+  </a>
 
 </body>
 </html>
