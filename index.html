@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr"> 
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tiago Rafael Belchior Dias — Développeur & Portfolio</title>
+  <meta name="description" content="Portfolio de Tiago Rafael Belchior Dias, étudiant en informatique et développeur C#, Web et SQL."/>
+  
+  <meta property="og:title" content="Portfolio de Tiago Rafael Belchior Dias" />
+  <meta property="og:description" content="Découvrez mes projets et compétences en développement." />
+  <meta property="og:image" content="img/Profile.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="styles.css" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/lucide@latest/dist/lucide.min.js" defer></script>
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+
+  <div id="loading" aria-hidden="true">
+    <div class="spinner" role="status" aria-label="Chargement...">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+      </svg>
+    </div>
+  </div>
+
+  <div id="stars" class="stars" aria-hidden="true"></div>
+
+  <header class="hero" role="banner" id="top">
+    <img class="hero__bg" src="https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1600&auto=format&fit=crop" alt="" aria-hidden="true" />
+    
+    <nav class="nav" role="navigation" aria-label="Navigation principale">
+      <div class="nav__brand">Tiago B.D.</div>
+      <button id="menu-toggle" aria-expanded="false" aria-controls="nav-links" class="nav__toggle" aria-label="Menu">☰</button>
+      <div id="nav-links" class="nav__links">
+        <a href="#projects" data-i18n="nav-projects">Projets</a>
+        <a href="#about" data-i18n="nav-about">À propos</a>
+        <a href="#formations" data-i18n="nav-formations">Parcours</a>
+        <a href="#skills" data-i18n="nav-skills">Compétences</a>
+        <a href="#contact" data-i18n="nav-contact">Contact</a>
+        <a href="source/CV_Tiago_Rafael_Belchior_Dias.pdf" target="_blank" class="btn-cv" data-i18n="nav-cv">CV PDF</a>
+      </div>
+    </nav>
+
+    <div class="hero__content">
+      <div class="hero__profile">
+        <img src="img/Profile.jpg" alt="Photo de Tiago" />
+      </div>
+      <h1>Tiago Rafael Belchior Dias</h1>
+      <p class="hero__lead" data-i18n="hero-lead">Étudiant en BUT Informatique & Développeur Fullstack</p>
+      <div class="hero__action">
+        <a class="btn" href="#projects" data-i18n="hero-btn-projects">Voir mes projets</a>
+        <a class="btn btn--ghost" href="#contact" data-i18n="hero-btn-contact">Me contacter</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <h2 id="projects-title" class="section__title" data-i18n="projects-title">Mes Projets</h2>
+
+      <div class="controls">
+        <span class="muted" data-i18n="projects-sort-label">Filtrer : </span>
+        <button class="chip active" data-filter="all">Tous</button>
+        <button class="chip" data-filter="C#">C# / WPF</button>
+        <button class="chip" data-filter="Web">Web (HTML/JS/PHP)</button>
+        <button class="chip" data-filter="SQL">Base de données</button>
+      </div>
+
+      <div class="grid" id="projects-grid">
+        <article class="card reveal" data-type="C# univ">
+          <img src="img/Lé Moustik c pa bi1.png" alt="Capture du jeu Le Moustique" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=Image+Projet'">
+          <div class="card__body">
+            <h3 class="card__title">Jeu "Le Moustique"</h3>
+            <p class="card__desc" data-i18n="project-moustik-desc">Jeu d'arcade réalisé en C# (WPF). Gestion des collisions, score et boucles de jeu.</p>
+            <div class="card__meta">
+              <span class="tag">C#</span>
+              <span class="tag">WPF</span>
+              <a href="https://github.com/SonicRaft29-etu/TestGithubwpf" target="_blank" rel="noopener noreferrer" class="card__link">
+                 GitHub <i data-lucide="external-link"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal" data-type="Web univ">
+          <img src="img/hunimalis.jpg" alt="Capture du site Hunimalis" loading="lazy" onerror="this.src='https://placehold.co/600x400?text=Projet+Web'">
+          <div class="card__body">
+            <h3 class="card__title">Hunimalis</h3>
+            <p class="card__desc" data-i18n="project-sae-desc">Développement d'un site web dynamique avec Laravel et gestion de base de données PostgreSQL.</p>
+            <div class="card__meta">
+              <span class="tag">PHP Laravel</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="card__cta muted">Lien privé</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card reveal" data-type="C# SQL univ">
+          <img src="https://placehold.co/600x400?text=App+Gestion" alt="Application de gestion" loading="lazy">
+          <div class="card__body">
+            <h3 class="card__title">App Gestion Stocks</h3>
+            <p class="card__desc" data-i18n="project-nicolas-desc">Application CRUD connectée à une BDD pour la gestion de stocks et utilisateurs.</p>
+            <div class="card__meta">
+              <span class="tag">C#</span>
+              <span class="tag">SQL</span>
+              <a href="https://github.com/SonicRaft29-etu/Nicolas" target="_blank" rel="noopener noreferrer" class="card__link">
+                GitHub <i data-lucide="external-link"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <h2 id="about-title" class="section__title" data-i18n="about-title">À propos</h2>
+      <div class="about-content">
+        <div>
+          <p data-i18n="about-p1">
+            Bonjour ! Je suis <strong>Tiago Rafael Belchior Dias</strong>, étudiant en informatique passionné par le développement logiciel. 
+            J'aime concevoir des architectures solides en C# et créer des expériences web interactives.
+          </p>
+          <ul class="about-list">
+            <li><strong>🎓 Formation :</strong> BUT Informatique (2ème année)</li>
+            <li><strong>💻 Intérêts :</strong> Programmation système, Web, Jeux vidéo</li>
+            <li><strong>🌍 Langues :</strong> Portugais (Natif), Français (Bilingue), Anglais (B2)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="formations" class="section">
+      <h2 class="section__title">Parcours</h2>
+      
+      <div class="timeline-container">
+        <h3 class="timeline-header">🎓 Formation</h3>
+        <ol class="timeline">
+          <li>
+            <time>2024 - Présent</time>
+            <div class="timeline__content">
+              <h3>BUT Informatique</h3>
+              <p><strong>IUT Annecy (USMB)</strong></p>
+              <p>Spécialisation en réalisation d'applications : conception, développement, tests et déploiement.</p>
+            </div>
+          </li>
+          <li>
+            <time>2024</time>
+            <div class="timeline__content">
+              <h3>Baccalauréat STI2D</h3>
+              <p><strong>Lycée de l'Albanais</strong></p>
+              <p>Mention Bien. Option Systèmes d'Information et Numérique.</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3 class="timeline-header" style="margin-top: 2rem;">💼 Expériences</h3>
+        <ol class="timeline">
+          <li>
+            <time>2025 - 2026</time>
+            <div class="timeline__content">
+              <h3>Développeur Fullstack (Projet Académique)</h3>
+              <p><strong>IUT Annecy</strong></p>
+              <p>Gestion complète du cycle de vie logiciel : Analyse des besoins, modélisation UML, développement et recette.</p>
+            </div>
+          </li>
+          <li>
+            <time>Étés 2023 & 2024</time>
+            <div class="timeline__content">
+              <h3>Emplois Saisonniers (BTP & Industrie)</h3>
+              <p><strong>SMC2</strong></p>
+              <p>Développement de l'autonomie, travail d'équipe et rigueur professionnelle.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="skills" class="section" aria-labelledby="skills-title">
+      <h2 id="skills-title" class="section__title" data-i18n="skills-title">Stack Technique</h2>
+      <div class="skills-wrapper">
+        
+        <div class="skill-category">
+          <h3>Backend & Logiciel</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">C# / .NET</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C++</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Web & Front</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">WPF (XAML)</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Data & Outils</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Git / GitHub</span>
+            <span class="skill-tag">Linux</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="references" class="section">
+      <h2 class="section__title">Références</h2>
+      <p class="muted">Contacts disponibles sur demande.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">M. Pascal COLIN</h3>
+            <p class="card__desc">Professeur d'UML et SQL</p>
+            <p class="card__meta">Université Savoie Mont Blanc</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card__body">
+            <h3 class="card__title">M. Benoit DIARD</h3>
+            <p class="card__desc">Professeur de programmation</p>
+            <p class="card__meta">Université Savoie Mont Blanc</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section__title" data-i18n="contact-title">Contact</h2>
+      <div class="contact-box">
+        <p>À la recherche d'une alternance ou d'un stage ? N'hésitez pas à m'écrire.</p>
+        <a href="mailto:tiago-rafael.belchior-dias@etu.univ-smb.fr" class="btn btn--primary">
+          <i data-lucide="mail"></i> Envoyer un email
+        </a>
+        <div class="social-links">
+          <a href="https://github.com/SonicRaft29-etu" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/tiago-rafael-belchior-dias-33660436b" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p>© <span id="year">2026</span> Tiago Rafael Belchior Dias</p>
+      <a href="#top" class="back-to-top">Haut de page ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>
