@@ -1,5 +1,5 @@
 :root {
-  /* Palette "Destiny Director" (Dark Mode) */
+  /* Palette "Destiny Director" (Dark Mode) - Le Vide Spatial */
   --bg: #090a0f; 
   --surface: rgba(22, 27, 34, 0.7); 
   --card: rgba(15, 20, 28, 0.85);
@@ -27,24 +27,24 @@
 }
 
 [data-theme="light"] {
-  /* Le Voyageur - Version Adoucie (Soft Light Mode) */
-  --bg: #e6eaf0; /* Gris-bleu très doux au lieu de blanc */
-  --surface: rgba(218, 224, 232, 0.7); /* Verre mat */
-  --card: rgba(244, 246, 249, 0.85); /* Blanc cassé apaisant */
-  --muted: #748296;
+  /* Palette "Datapad Vanguard" (Light Mode ULTRA DOUX / Anti-fatigue) */
+  --bg: #cbd5e1; /* Gris ardoise mat, zéro blanc pur */
+  --surface: rgba(148, 163, 184, 0.25); /* Verre assombri */
+  --card: rgba(226, 232, 240, 0.85); /* Gris perle très doux */
+  --muted: #64748b;
   
-  /* Bleu Vanguard assombri pour ne pas flasher */
-  --accent: #0277b5; 
-  --accent-hover: #1e293b;
-  --accent-glow: rgba(2, 119, 181, 0.15); /* Lueur réduite */
-  --exotic: #b45309; /* Or/Ambre assombri pour la lisibilité */
+  /* Bleu profond pour ne pas agresser l'oeil */
+  --accent: #0369a1; 
+  --accent-hover: #0f172a;
+  --accent-glow: rgba(3, 105, 161, 0.15); /* Lueur minimale */
+  --exotic: #9a3412; /* Ambre foncé */
   
-  /* Texte Gris Ardoise (Jamais de noir pur) */
-  --text-primary: #2b3648; 
-  --text-secondary: #526075;
+  /* Texte gris foncé profond (jamais noir 100%) */
+  --text-primary: #1e293b; 
+  --text-secondary: #475569;
   
-  --border-color: rgba(2, 119, 181, 0.2);
-  --glass-border: rgba(0, 0, 0, 0.06);
+  --border-color: rgba(15, 23, 42, 0.15);
+  --glass-border: rgba(15, 23, 42, 0.1);
   color-scheme: light;
 }
 
@@ -59,7 +59,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
-  transition: background-color 0.4s ease, color 0.4s ease; /* Transition douce lors du changement de thème */
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* EFFET SCANLINES HOLOGRAMME */
@@ -69,7 +69,7 @@ body::after {
   top: 0; left: 0; width: 100vw; height: 100vh;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.03), /* Très subtil */
+    rgba(0, 0, 0, 0.03),
     rgba(0, 0, 0, 0.03) 1px,
     transparent 1px,
     transparent 2px
@@ -98,8 +98,8 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 }
 [data-theme="light"] .space-grid {
   background-image: 
-    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(15,23,42,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,23,42,0.04) 1px, transparent 1px);
 }
 
 /* CUSTOM SCROLLBAR */
@@ -127,10 +127,10 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 }
 .box-sci-fi:hover {
     border-color: var(--accent);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Ombre douce */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
-[data-theme="dark"] .box-sci-fi:hover {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Ombre forte en dark */
+[data-theme="light"] .box-sci-fi:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombre douce en light mode */
 }
 
 /* ANIMATIONS AU SCROLL */
@@ -230,6 +230,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
   cursor: pointer; transition: all 0.2s;
   clip-path: var(--clip-btn); 
 }
+.icon-btn svg { width: 18px; height: 18px; }
 .icon-btn:hover {
   background: var(--accent-glow);
   border-color: var(--accent); color: var(--accent);
@@ -252,7 +253,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
     opacity: 0.2; z-index: -1;
 }
 
-/* IMAGE DE PROFIL */
+/* IMAGE DE PROFIL NETTEMENT PLUS GRANDE */
 .hero__profile { margin-bottom: 2rem; display: flex; justify-content: center; }
 .profile-frame {
   width: clamp(200px, 30vw, 300px); 
@@ -287,10 +288,9 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
   border: none;
 }
 .btn--primary:hover {
-  background: var(--accent); color: #fff;
+  background: var(--accent); color: var(--bg);
   box-shadow: 0 0 20px var(--accent-glow);
 }
-[data-theme="light"] .btn--primary:hover { color: #fff; }
 
 .btn--ghost {
   background: transparent; border: 1px solid var(--text-primary);
@@ -305,7 +305,6 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 
 .btn-cv { border: 1px solid var(--accent); color: var(--accent) !important; clip-path: var(--clip-btn);}
 .btn-cv:hover { background: var(--accent); color: var(--bg) !important; box-shadow: 0 0 15px var(--accent-glow); }
-[data-theme="light"] .btn-cv:hover { color: #fff !important; }
 
 /* CARDS PROJETS (Hologrammes) */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
@@ -381,7 +380,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 
 /* SKILLS */
 .skills-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-.skill-category { padding: 1.5rem; }
+.skill-category { padding: 1.5rem; border-top: 2px solid transparent;}
 .skill-category:hover { border-color: var(--accent); }
 .skill-category h3 { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent); }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -413,12 +412,11 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 }
 .back-to-top.visible { opacity: 1; visibility: visible; }
 .back-to-top:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 15px var(--accent-glow);}
-[data-theme="light"] .back-to-top:hover { color: #fff; }
 
 /* ETOILES BG */
 .stars { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
 .star { position: absolute; background: white; border-radius: 50%; animation: twinkle linear infinite alternate; }
-[data-theme="light"] .star { background: var(--accent); opacity: 0.3; } /* Étoiles moins fortes en mode clair */
+[data-theme="light"] .star { background: var(--accent); opacity: 0.15; } /* Très discrètes en mode clair */
 @keyframes twinkle { 0% { opacity: 0.1; transform: scale(0.8); } 100% { opacity: 0.8; transform: scale(1.5); } }
 
 /* MEDIA QUERIES */
@@ -435,4 +433,5 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
     margin-left: 0; padding-left: 0; border-left: none;
     border-top: 1px solid var(--glass-border); padding-top: 1.5rem; width: 100%; justify-content: center;
   }
+  .hero__title { text-align: center; }
 }
