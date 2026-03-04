@@ -18,7 +18,6 @@
   --glass-border: rgba(255, 255, 255, 0.1);
   
   --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  /* Angles coupés style Destiny */
   --clip-corner: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
   --clip-btn: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
   
@@ -28,18 +27,18 @@
 
 [data-theme="light"] {
   /* Palette "Datapad Vanguard" (Light Mode ULTRA DOUX / Anti-fatigue) */
-  --bg: #cbd5e1; /* Gris ardoise mat, zéro blanc pur */
-  --surface: rgba(148, 163, 184, 0.25); /* Verre assombri */
-  --card: rgba(226, 232, 240, 0.85); /* Gris perle très doux */
+  --bg: #cbd5e1; 
+  --surface: rgba(148, 163, 184, 0.25);
+  --card: rgba(226, 232, 240, 0.85);
   --muted: #64748b;
   
   /* Bleu profond pour ne pas agresser l'oeil */
   --accent: #0369a1; 
   --accent-hover: #0f172a;
-  --accent-glow: rgba(3, 105, 161, 0.15); /* Lueur minimale */
-  --exotic: #9a3412; /* Ambre foncé */
+  --accent-glow: rgba(3, 105, 161, 0.15); 
+  --exotic: #9a3412; 
   
-  /* Texte gris foncé profond (jamais noir 100%) */
+  /* Texte gris foncé profond */
   --text-primary: #1e293b; 
   --text-secondary: #475569;
   
@@ -62,15 +61,15 @@ body {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* EFFET SCANLINES HOLOGRAMME HOLA-NAV */
+/* EFFET SCANLINES HOLOGRAMME */
 body::after {
   content: "";
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.05),
-    rgba(0, 0, 0, 0.05) 1px,
+    rgba(0, 0, 0, 0.03),
+    rgba(0, 0, 0, 0.03) 1px,
     transparent 1px,
     transparent 2px
   );
@@ -130,7 +129,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 [data-theme="light"] .box-sci-fi:hover {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombre douce en light mode */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
 }
 
 /* ANIMATIONS AU SCROLL */
@@ -161,23 +160,29 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
   box-shadow: 0 0 10px var(--accent-glow);
 }
 
-/* ÉCRAN DE CHARGEMENT SPECTRE */
+/* ÉCRAN DE CHARGEMENT : ANIMATION GIF */
 #loading {
   position: fixed; inset: 0;
   display: flex; align-items: center; justify-content: center;
   background: var(--bg); z-index: 2000;
   transition: opacity 0.5s ease-out, visibility 0.5s;
 }
-.ghost-core {
-  width: 40px; height: 40px;
-  background: var(--accent);
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  animation: pulse-core 1.5s infinite alternate;
-  box-shadow: 0 0 30px var(--accent-glow);
+.gif-loader {
+  width: 300px; /* Ajuste la taille si besoin */
+  max-width: 80vw;
+  height: auto;
+  border-radius: 10px; /* Adoucit les bords si l'image est rectangulaire */
+  transition: filter 0.3s ease;
 }
-@keyframes pulse-core {
-  0% { transform: scale(0.8) rotate(0deg); opacity: 0.7; }
-  100% { transform: scale(1.1) rotate(90deg); opacity: 1; }
+
+/* MAGIE CSS : On inverse les couleurs du GIF pour le Dark Mode ! */
+[data-theme="dark"] .gif-loader {
+  filter: invert(1) hue-rotate(180deg);
+  /* Le gris clair devient gris foncé, le noir devient blanc */
+  mix-blend-mode: screen; /* Fait disparaître le fond pour le fondre à la galaxie */
+}
+[data-theme="light"] .gif-loader {
+  mix-blend-mode: multiply; /* Fait fondre le gris clair du GIF avec le gris ardoise du site */
 }
 
 /* NAVIGATION (HUD) */
@@ -221,8 +226,9 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
   cursor: pointer; transition: all 0.2s;
   clip-path: var(--clip-btn); 
 }
+.icon-btn svg { width: 18px; height: 18px; }
 .icon-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--accent-glow);
   border-color: var(--accent); color: var(--accent);
 }
 .lang-btn {
@@ -243,16 +249,15 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
     opacity: 0.2; z-index: -1;
 }
 
-/* IMAGE DE PROFIL NETTEMENT PLUS GRANDE (Nouveau) */
-.hero__profile { margin-bottom: 2rem; display: flex; justify(center); }
+/* IMAGE DE PROFIL NETTEMENT PLUS GRANDE */
+.hero__profile { margin-bottom: 2rem; display: flex; justify-content: center; }
 .profile-frame {
-  /* clamp(min, pref, max) - s'adapte à la page */
   width: clamp(200px, 30vw, 300px); 
   height: clamp(200px, 30vw, 300px); 
   padding: 6px; border: 1px solid var(--border-color);
   clip-path: var(--clip-corner);
   position: relative;
-  background: rgba(0, 212, 255, 0.1);
+  background: var(--accent-glow);
   transition: transform var(--transition);
 }
 .profile-frame:hover { transform: scale(1.03); }
@@ -266,7 +271,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 .hero__lead { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2.5rem; max-width: 600px; text-align: center; margin-left: auto; margin-right: auto;}
 
 /* BOUTONS SCI-FI */
-.hero__action { display: flex; gap: 1rem; flex-wrap: wrap; justify(center);}
+.hero__action { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;}
 .btn {
   display: inline-flex; align-items: center; gap: 0.6rem;
   padding: 0.8rem 2rem; text-decoration: none; font-weight: 700;
@@ -315,7 +320,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 
 .card__img-container { width: 100%; height: 180px; position: relative; border-bottom: 1px solid var(--glass-border); }
 .card img, .card__placeholder { width: 100%; height: 100%; object-fit: cover; }
-.card__placeholder { display: flex; align-items: center; justify(center); background: rgba(0,0,0,0.1); color: var(--accent); }
+.card__placeholder { display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.1); color: var(--accent); }
 .card__overlay {
     position: absolute; inset: 0; background: linear-gradient(to top, var(--card), transparent); opacity: 0.8;
 }
@@ -342,7 +347,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 }
 
 /* FILTRES (Onglets du Directeur) */
-.controls { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; justify(center);}
+.controls { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; justify-content: center;}
 .chip {
   background: transparent; color: var(--text-secondary);
   border: 1px solid var(--glass-border); padding: 0.5rem 1.5rem;
@@ -371,7 +376,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 
 /* SKILLS */
 .skills-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-.skill-category { padding: 1.5rem; }
+.skill-category { padding: 1.5rem; border-top: 2px solid transparent;}
 .skill-category:hover { border-color: var(--accent); }
 .skill-category h3 { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--accent); }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -385,7 +390,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 /* CONTACT & FOOTER */
 .contact-box { text-align: center; }
 .contact-box p { margin-bottom: 2rem; color: var(--text-secondary); font-family: 'Rajdhani', sans-serif; font-size: 1.1rem; letter-spacing: 1px;}
-.social-links { margin-top: 2rem; display: flex; justify(center); gap: 1.5rem; }
+.social-links { margin-top: 2rem; display: flex; justify-content: center; gap: 1.5rem; }
 .social-links a {
   color: var(--text-secondary); padding: 0.8rem; border: 1px solid var(--glass-border);
   display: flex; transition: all 0.2s; clip-path: var(--clip-btn);
@@ -393,12 +398,12 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 .social-links a:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-glow); }
 
 .footer { padding: 2rem 0; text-align: center; color: var(--muted); border-top: 1px solid var(--glass-border); margin-top: 5rem; font-family: 'Rajdhani', sans-serif; letter-spacing: 2px; font-size: 0.8rem;}
-.footer__container { justify(center);}
+.footer__container { justify-content: center;}
 
 /* FLOTTANT: HAUT DE PAGE */
 .back-to-top {
   position: fixed; bottom: 2rem; right: 2rem; background: var(--surface); color: var(--accent);
-  width: 44px; height: 44px; border: 1px solid var(--accent); display: flex; align-items: center; justify(center);
+  width: 44px; height: 44px; border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center;
   text-decoration: none; opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 900; clip-path: var(--clip-btn);
 }
 .back-to-top.visible { opacity: 1; visibility: visible; }
@@ -407,7 +412,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
 /* ETOILES BG */
 .stars { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
 .star { position: absolute; background: white; border-radius: 50%; animation: twinkle linear infinite alternate; }
-[data-theme="light"] .star { background: var(--accent); opacity: 0.15; } /* Très discrètes en mode clair */
+[data-theme="light"] .star { background: var(--accent); opacity: 0.15; } 
 @keyframes twinkle { 0% { opacity: 0.1; transform: scale(0.8); } 100% { opacity: 0.8; transform: scale(1.5); } }
 
 /* MEDIA QUERIES */
@@ -422,7 +427,7 @@ h1, h2, h3, .nav__brand, .btn, .chip, .timeline-header span, .timeline time, .ca
   .nav__links.open { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
   .nav__controls {
     margin-left: 0; padding-left: 0; border-left: none;
-    border-top: 1px solid var(--glass-border); padding-top: 1.5rem; width: 100%; justify(center);
+    border-top: 1px solid var(--glass-border); padding-top: 1.5rem; width: 100%; justify-content: center;
   }
   .hero__title { text-align: center; }
 }
